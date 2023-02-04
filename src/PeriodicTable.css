@@ -1,0 +1,94 @@
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 70px);
+  grid-template-rows: repeat(10, 70px);
+  grid-gap: 2px;
+}
+
+.element {
+  background: white;
+  border: 1px solid #aaa;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.element:hover {
+  transform: scale(1.25, 1.25);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.element .number {
+  font-size: 10px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.element .name {
+  font-size: 9.5px;
+  position: absolute;
+  bottom: 3px;
+}
+
+.element .atomic-weight {
+  font-size: 8px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.no-element {
+  transform: scale(1, 1) !important;
+  z-index: 0 !important;
+  cursor: context-menu !important;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  gap: 12px;
+}
+
+.pop-up {
+  animation-name: popup;
+  animation-duration: 300ms;
+}
+
+@keyframes popup {
+  0% {top: 100%;}
+  100% {top: 0%;}
+}
+
+.pop-down {
+  animation-name:  popdown;
+  animation-duration: 300ms;
+}
+
+@keyframes popdown {
+  0% {top: 0%;}
+  100% {top: 100%;}
+}
+
+.arrow-a-weight {
+  top: 53px;
+  left: 165px;
+}
+
+.arrow-symbol {
+  left: 135px;
+}
+
+.arrow-name {
+  bottom: 55px;
+  left: 140px;
+}
+
+.arrow-a-number {
+  bottom: 150px;
+  right: 175px;
+}
