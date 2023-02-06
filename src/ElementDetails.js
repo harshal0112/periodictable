@@ -1,5 +1,6 @@
 import React from "react";
 import { FaReact, FaFlask, FaAtom } from "react-icons/fa";
+import { HiArrowLeft } from "react-icons/hi";
 import dataX from "./PeriodicTableJSON.json";
 
 function ElementDetails(props) {
@@ -20,59 +21,75 @@ function ElementDetails(props) {
           }`}
         >
           {/* // <!-- Modal content --> */}
-          <div className="relative bg-white divide-y divide-slate-700 tracking-wide rounded shadow dark:bg-gray-900">
+          <div className="relative bg-white divide-y divide-slate-700 tracking-wide shadow dark:bg-gray-900">
             {/* <!-- Modal header --> */}
-            <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                {props.element.name}
-              </h3>
-              <button
-                type="button"
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                data-modal-hide="defaultModal"
-                onClick={props.closeModal}
-              >
-                <svg
-                  aria-hidden="true"
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
-            </div>
             {/* // <!-- Modal body --> */}
-            <div className="space-y-6">
+            <div className="relative">
               <div
                 className={`flex justify-center items-center overflow-hidden h-64`}
               >
                 {props.element.image && (
                   <img
-                    className="w-full h-72"
+                    className="w-full h-72 brightness-50"
                     src={props.element.image.url}
                     alt={props.element.name}
                     style={{ width: "100%" }}
                   />
                 )}
+                <button
+                  className="absolute left-3 top-2 text-2xl text-gray-200"
+                  onClick={props.closeModal}
+                >
+                  <h1>
+                    <HiArrowLeft />
+                  </h1>
+                </button>
+                <div className="absolute bottom-8 left-3 text-gray-200">
+                  <h1 className="text-5xl">{props.element.symbol}</h1>
+                </div>
+                <button
+                  className="absolute bottom-2 right-3 text-gray-200"
+                  onClick={() => props.show3dModal("Visible")}
+                >
+                  <h1 className="text-lg shadow-xl bg-gray-500 pl-1 pr-1">
+                    3D
+                  </h1>
+                </button>
               </div>
             </div>
             <div className="p-3 flex text-gray-300 items-center justify-center divide-x divide-slate-600">
-              <div className="flex justify-center w-1/2 cursor-pointer hover:text-gray-100">
-                {dataX.elements[Number(props.element.number)] && (
+              <div className="flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center">
+                {dataX.elements[
+                  Number(props.element.number) < 119
+                    ? Number(props.element.number)
+                    : 118
+                ] && (
                   <small>
-                    Prev {dataX.elements[Number(props.element.number) - 2].name}
+                    {props.element.number >= 2
+                      ? dataX.elements[Number(props.element.number) - 2]
+                          .number +
+                        " - " +
+                        dataX.elements[Number(props.element.number) - 2].name
+                      : "*"}
                   </small>
                 )}
+                <div className="absolute left-2">&#10094;</div>
               </div>
-              <div className="flex justify-center w-1/2 cursor-pointer hover:text-gray-100">
-                <small>Next</small>
+              <div className="flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center">
+                {dataX.elements[
+                  Number(props.element.number) < 119
+                    ? Number(props.element.number)
+                    : 118
+                ] && (
+                  <small>
+                    {props.element.number < 119
+                      ? dataX.elements[Number(props.element.number)].number +
+                        " - " +
+                        dataX.elements[Number(props.element.number)].name
+                      : "*"}
+                  </small>
+                )}
+                <div className="absolute right-2">&#10095;</div>
               </div>
             </div>
             <div className="p-3 flex items-center bg-zinc-600 text-gray-300 text-start">

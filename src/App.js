@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Dashboard from "./Dashboard";
 import ElementDetails from "./ElementDetails";
+import { ModelViewer3D } from "./ModelViewer3D";
 import PeriodicTable from "./PeriodicTable";
 // import Video from "./Video";
 
@@ -15,6 +16,13 @@ function App() {
   const closeModal = () => {
     setIsModal("");
   };
+  const [is3dModal, setIs3dModal] = useState("");
+  const show3dModal = (event) => {
+    setIs3dModal(event);
+  };
+  const close3dModal = () => {
+    setIs3dModal("");
+  };
   return (
     <div className="App">
       <Dashboard />
@@ -25,6 +33,14 @@ function App() {
           element={element}
           showModal={showModal}
           closeModal={closeModal}
+          show3dModal={show3dModal}
+        />
+        <ModelViewer3D
+          className="z-10"
+          is3dModal={is3dModal}
+          close3dModal={close3dModal}
+          show3dModal={show3dModal}
+          element={element}
         />
       </div>
       {/* <Video /> */}
