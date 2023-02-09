@@ -1,12 +1,7 @@
 import React from "react";
-import { Canvas } from "@react-three/fiber";
-import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 import { HiArrowLeft } from "react-icons/hi";
-
-function Model(props) {
-  const { scene } = useGLTF(props.element.bohr_model_3d);
-  return <primitive object={scene} {...props} />;
-}
+import "@google/model-viewer";
+import "./PeriodicTable.css";
 
 function ModelViewer3D(props) {
   return (
@@ -14,59 +9,59 @@ function ModelViewer3D(props) {
       <div
         className={`relative z-50 ${
           props.is3dModal === "Visible" ? "" : "hidden"
-        }`}
+        } model-3d`}
         aria-labelledby="modal-title"
         role="dialog"
         aria-modal="true"
       >
         <div
-          className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity Entering:ease-out duration-300
-      From:opacity-0
-      To:opacity-100
-    Leaving:ease-in duration-200
-      From:opacity-100
-      To:opacity-0"
-        ></div>
-
-        <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center m-10 text-center sm:items-center sm:p-0">
+          className="fixed inset-0 z-50 h-full overflow-y-hidden backdrop-brightness-50 flex items-center justify-center"
+          onClick={props.close3dModal}
+        >
+          <div className="absolute flex w-full max-w-lg h-full justify-center m-10 text-center items-center">
             <div
-              className="relative rounded-lg"
-              style={{ backgroundColor: "#808080" }}
+              className="relative rounded-lg flex items-center justify-center"
+              style={{
+                backgroundColor: "#808080",
+                width: "700px",
+                height: "550px",
+              }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <Canvas
-                dpr={[1, 2]}
-                shadows
-                camera={{ fov: 1 }}
-                style={{
-                  position: "relative",
-                  width: "500px",
-                  height: "450px",
-                }}
-                className="rounded"
-              >
-                <color attach="background" args={["#808080"]} />
-                <ambientLight intensity={0.5} />
-                <PresentationControls
-                  speed={1.5}
-                  global
-                  zoom={0.9}
-                  polar={[-0.1, Math.PI / 4]}
-                >
-                  <Stage environment={null}>
-                    <Model scale={0.01} element={props.element} />
-                  </Stage>
-                </PresentationControls>
-              </Canvas>
+              {props.element.bohr_model_3d ? (
+                props.is3dModal === "Visible" ? (
+                  <model-viewer
+                    src={props.element.bohr_model_3d}
+                    loading="eager"
+                    ar
+                    ar-modes="webxr scene-viewer quick-look"
+                    camera-controls
+                    auto-rotate
+                    poster="https://www.linkpicture.com/q/newG.gif"
+                    shadow-intensity="2"
+                    scale="1.75 1.75 1.75"
+                    autoplay
+                    style={{ height: "100%", width: "100%" }}
+                  >
+                    {" "}
+                  </model-viewer>
+                ) : (
+                  <div>Loading...</div>
+                )
+              ) : (
+                <div>
+                  Bohr 3D Model Not Available for this Element to Preview
+                </div>
+              )}
               <button
-                className="absolute left-3 top-2 text-2xl text-gray-300"
+                className="absolute left-3 top-2 text-2xl text-white  hover:bg-gray-400 rounded-md hover:text-gray-700 transform active:scale-75 transition-transform"
                 onClick={props.close3dModal}
               >
                 <h1>
                   <HiArrowLeft />
                 </h1>
               </button>
-              <div className="absolute bottom-2 right-5 text-gray-300">
+              <div className="absolute bottom-2 left-3 text-gray-300">
                 <h1>{props.element.name}</h1>
               </div>
             </div>
@@ -77,4 +72,4 @@ function ModelViewer3D(props) {
   );
 }
 
-export { ModelViewer3D, Model };
+export default ModelViewer3D;

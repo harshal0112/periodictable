@@ -2,6 +2,14 @@ import React from "react";
 import { useState } from "react";
 
 function Dashboard() {
+  const [mainMenuOpen, setMainMenuOpen] = useState(false);
+  function mainMenuClick() {
+    if (mainMenuOpen) {
+      setMainMenuOpen(false);
+    } else {
+      setMainMenuOpen(true);
+    }
+  }
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   function userMenuClick() {
     if (userMenuOpen) {
@@ -154,6 +162,7 @@ function Dashboard() {
                   className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   aria-controls="mobile-menu"
                   aria-expanded="false"
+                  onClick={mainMenuClick}
                 >
                   <span className="sr-only">Open main menu</span>
                   {/*  */}
@@ -192,7 +201,12 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="md:hidden" id="mobile-menu">
+          <div
+            className={`${
+              mainMenuOpen ? "" : "hidden"
+            } transform transition-all`}
+            id="mobile-menu"
+          >
             <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
               <a
                 href="/"

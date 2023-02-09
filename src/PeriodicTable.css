@@ -5,6 +5,48 @@
   grid-gap: 2px;
 }
 
+
+@media only screen and (max-width: 1300px) {
+  .periodic-table {
+    scale: 0.8;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .periodic-table {
+    scale: 0.6;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .periodic-table {
+    scale: 0.4;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .periodic-table {
+    transform: rotate(90deg);
+    scale: 0.45;
+  }
+
+  .element {
+    transform: rotate(270deg);
+  }
+
+  .element:hover {
+    transform: rotate(270deg);
+  }
+
+  .list {
+    transform: rotate(270deg);
+  }
+
+  .list1 {
+    justify-content: end;
+  }
+}
+
 .element {
   background: white;
   border: 1px solid #aaa;
@@ -12,12 +54,6 @@
   position: relative;
   align-items: center;
   justify-content: center;
-}
-
-.element:hover {
-  transform: scale(1.25, 1.25);
-  z-index: 1;
-  cursor: pointer;
 }
 
 .element .number {
@@ -51,7 +87,6 @@
   flex-direction: column;
   align-items: flex-start;
   height: 100%;
-  gap: 12px;
 }
 
 .pop-up {

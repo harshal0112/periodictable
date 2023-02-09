@@ -11,19 +11,18 @@ function ElementDetails(props) {
         id="defaultModal"
         tabIndex="-1"
         aria-hidden="true"
-        className={`fixed top-0 left-0 right-0 bottom-0 z-50 flex justify-center ${
+        className={`fixed top-0 left-0 right-0 bottom-0 flex justify-center ${
           props.isModal === "Visible" ? "" : "hidden"
-        } w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full backdrop-brightness-50`}
+        } w-full p-0 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full backdrop-brightness-50 z-10`}
+        onClick={props.closeModal}
       >
         <div
-          className={`relative w-full h-full max-w-lg md:h-auto ${
+          className={`absolute z-50 w-full h-full max-w-lg md:h-auto ${
             props.isModal === "Visible" ? "pop-up" : ""
           }`}
+          onClick={(e) => e.stopPropagation()}
         >
-          {/* // <!-- Modal content --> */}
           <div className="relative bg-white divide-y divide-slate-700 tracking-wide shadow dark:bg-gray-900">
-            {/* <!-- Modal header --> */}
-            {/* // <!-- Modal body --> */}
             <div className="relative">
               <div
                 className={`flex justify-center items-center overflow-hidden h-64`}
@@ -37,7 +36,7 @@ function ElementDetails(props) {
                   />
                 )}
                 <button
-                  className="absolute left-3 top-2 text-2xl text-gray-200"
+                  className="absolute left-3 top-2 text-2xl text-gray-200 hover:bg-gray-400 rounded-md hover:text-gray-700 transform active:scale-75 transition-transform"
                   onClick={props.closeModal}
                 >
                   <h1>
@@ -48,12 +47,10 @@ function ElementDetails(props) {
                   <h1 className="text-5xl">{props.element.symbol}</h1>
                 </div>
                 <button
-                  className="absolute bottom-2 right-3 text-gray-200"
+                  className="absolute bottom-2 right-3 text-gray-200 rounded-full pl-3 pr-3 p-1 bg-gray-800 shadow-black shadow hover:scale-105 text-sm transform active:scale-90 transition-transform duration-75"
                   onClick={() => props.show3dModal("Visible")}
                 >
-                  <h1 className="text-lg shadow-xl bg-gray-500 pl-1 pr-1">
-                    3D
-                  </h1>
+                  Bohr's 3D Model
                 </button>
               </div>
             </div>

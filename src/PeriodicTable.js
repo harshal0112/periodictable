@@ -25,7 +25,7 @@ const PeriodicTable = (props) => {
     <div className="periodic-table bg-white dark:bg-gray-600">
       {data.elements.map((element) => (
         <div
-          className="element drop-shadow-2xl"
+          className="element shadow-2xl hover:scale-150 hover:z-10 cursor-pointer transform active:scale-95 hover:shadow hover:shadow-black transition-transform"
           key={element.name}
           style={{
             gridRow: element.ypos,
@@ -82,43 +82,43 @@ const PeriodicTable = (props) => {
           backgroundColor: "transparent",
         }}
       >
-        <ul className="list list1 ml-8">
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+        <ul className="list list1 ml-8 text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["alkali metal"] }}
             ></div>
             <small> &nbsp; &nbsp; Alkali Metals</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["metalloid"] }}
             ></div>
             <small> &nbsp; &nbsp; Metalloids</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["lanthanide"] }}
             ></div>
             <small> &nbsp; &nbsp; Lanthanides</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["post-transition metal"] }}
             ></div>
             <small> &nbsp; &nbsp; Post Transition Metals</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["actinide"] }}
             ></div>
             <small> &nbsp; &nbsp; Actinides</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["alkaline earth metal"] }}
@@ -136,35 +136,35 @@ const PeriodicTable = (props) => {
         }}
       >
         <ul className="list list2 ml-8">
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: "orangered" }}
             ></div>
             <small> &nbsp; &nbsp; Unknown</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["transition metal"] }}
             ></div>
             <small> &nbsp; &nbsp; Transition Metals</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["noble gas"] }}
             ></div>
             <small> &nbsp; &nbsp; Noble Gas</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["diatomic nonmetal"] }}
             ></div>
             <small> &nbsp; &nbsp; Diatomic NonMetal</small>
           </li>
-          <li className="flex flex-row content-center justify-center text-gray-700 dark:text-gray-100">
+          <li className="flex flex-row content-center justify-start transform hover:scale-110 cursor-pointer transition-transform w-full p-1 hover:bg-gray-700 rounded-full hover:shadow hover:shadow-black active:scale-95">
             <div
               className="w-5 h-100 rounded-full"
               style={{ backgroundColor: colorMap["polyatomic nonmetal"] }}
