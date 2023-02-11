@@ -92,6 +92,7 @@
 .pop-up {
   animation-name: popup;
   animation-duration: 300ms;
+  padding-top: 20px;
 }
 
 @keyframes popup {

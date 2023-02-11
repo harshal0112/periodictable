@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Dashboard from "./Dashboard";
-import ElementDetails from "./ElementDetails";
+import ElementDetails from "./ElementDetails2";
 import ModelViewer3D from "./ModelViewer3D";
 import PeriodicTable from "./PeriodicTable";
 // import Video from "./Video";
@@ -15,10 +15,12 @@ function App() {
   };
   const closeModal = () => {
     setIsModal("");
+    document.body.style.overflowY = "auto";
   };
   const [is3dModal, setIs3dModal] = useState("closed");
   const show3dModal = (event) => {
     setIs3dModal(event);
+    document.body.style.overflowY = "hidden";
   };
   const close3dModal = () => {
     setIs3dModal("closed");

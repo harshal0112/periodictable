@@ -13,7 +13,11 @@ function ElementDetails(props) {
         aria-hidden="true"
         className={`fixed top-0 left-0 right-0 bottom-0 flex justify-center ${
           props.isModal === "Visible" ? "" : "hidden"
-        } w-full p-0 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full backdrop-brightness-50 z-10`}
+        } w-full p-0 overflow-x-hidden ${
+          props.is3dModal === "Visible"
+            ? "overflow-y-hidden"
+            : "overflow-y-auto"
+        } md:inset-0 h-modal md:h-full backdrop-brightness-50 z-10 pt-10`}
         onClick={props.closeModal}
       >
         <div
@@ -22,10 +26,10 @@ function ElementDetails(props) {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="relative bg-white divide-y divide-slate-700 tracking-wide shadow dark:bg-gray-900">
+          <div className="relative bg-white divide-y divide-slate-700 tracking-wide shadow dark:bg-gray-900 rounded">
             <div className="relative">
               <div
-                className={`flex justify-center items-center overflow-hidden h-64`}
+                className={`flex justify-center items-center overflow-hidden h-64 rounded-t`}
               >
                 {props.element.image && (
                   <img
