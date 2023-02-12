@@ -309,9 +309,9 @@ function Dashboard() {
           </div>
         </nav>
 
-        <header className="bg-white dark:bg-gray-700">
+        <header className=" shadow-xl shadow-black bg-gray-900 bg-opacity-90">
           <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl dark:text-gray-100 font-bold tracking-tight text-gray-900">
+            <h1 className="text-3xl text-gray-200 font-bold tracking-tight">
               Periodic Table
             </h1>
           </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaReact } from "react-icons/fa";
+import { FaReact, FaWikipediaW } from "react-icons/fa";
 import { GiFizzingFlask, GiChemicalDrop } from "react-icons/gi";
 import { HiArrowLeft, HiOutlineChevronDown } from "react-icons/hi";
 import dataX from "./PeriodicTableJSON.json";
@@ -40,15 +40,15 @@ function ElementDetails(props) {
         onClick={props.closeModal}
       >
         <div
-          className={`absolute z-50 w-full h-full max-w-lg md:h-auto ${
+          className={`absolute p-2 z-50 w-full h-full max-w-lg md:h-auto ${
             props.isModal === "Visible" ? "pop-up" : ""
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="relative bg-white divide-y divide-slate-600 tracking-wide shadow dark:bg-gray-900 rounded">
+          <div className="relative bg-white divide-y divide-slate-600 tracking-wide shadow dark:bg-gray-900 rounded-[2px]">
             <div className="relative">
               <div
-                className={`flex justify-center items-center overflow-hidden h-64 rounded-t`}
+                className={`flex justify-center items-center overflow-hidden h-64 rounded-t-[2px]`}
               >
                 {props.element.image && (
                   <img
@@ -59,13 +59,24 @@ function ElementDetails(props) {
                   />
                 )}
                 <button
-                  className="absolute left-3 top-2 text-2xl text-gray-200 hover:bg-gray-400 rounded-md hover:text-gray-700 transform active:scale-75 transition-transform"
+                  className="absolute left-3 top-5 text-xl text-gray-200 p-1 hover:bg-gray-400 rounded-md hover:text-gray-700 transform active:scale-75 transition-transform"
+                  title="Back"
                   onClick={props.closeModal}
                 >
                   <h1>
                     <HiArrowLeft />
                   </h1>
                 </button>
+                <a href={props.element.source} target="_blank" rel="noreferrer">
+                  <button
+                    className="absolute top-5 right-4 text-xl"
+                    title="Wikipedia"
+                  >
+                    <h1>
+                      <FaWikipediaW />
+                    </h1>
+                  </button>
+                </a>
                 <div className="absolute bottom-8 left-3 text-gray-200 flex">
                   <div className="mr-5">
                     <h1 className="text-5xl">{props.element.symbol}</h1>
@@ -80,7 +91,7 @@ function ElementDetails(props) {
                   </div>
                 </div>
                 <div
-                  className="absolute flex items-center bottom-24 left-0 px-2 py-0 divide-x text-[10px] h-8 text-gray-100 rounded-r"
+                  className="absolute flex items-center bottom-24 left-0 px-2 py-0 divide-x text-[10px] h-[30px] text-gray-100 rounded-r-[1px]"
                   style={{ backgroundColor: colorMap[props.element.category] }}
                 >
                   <h1 className="">{props.element.number} &nbsp; </h1>
@@ -95,10 +106,11 @@ function ElementDetails(props) {
                   </h1>
                 </div>
                 <button
-                  className="absolute bottom-2 right-3 text-gray-200 rounded-full pl-3 pr-3 p-1 bg-gray-800 shadow-black shadow hover:scale-105 text-sm transform active:scale-90 transition-transform duration-75"
+                  className="absolute bottom-8 right-3 text-gray-200 rounded-full pl-3 pr-3 p-1 bg-gray-600 shadow-black shadow-md hover:scale-105 text-sm transform active:scale-90 transition-transform duration-75"
+                  title="Bohr's 3D Model"
                   onClick={() => props.show3dModal("Visible")}
                 >
-                  Bohr's 3D Model
+                  3D
                 </button>
               </div>
             </div>

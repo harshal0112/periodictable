@@ -18,7 +18,7 @@ function ModelViewer3D(props) {
           className="fixed inset-0 z-50 h-full overflow-y-hidden backdrop-brightness-50 flex items-center justify-center"
           onClick={props.close3dModal}
         >
-          <div className="absolute flex w-full max-w-lg h-full justify-center m-10 text-center items-center">
+          <div className="absolute flex w-full max-w-lg h-full justify-center m-10 text-center items-center p-2">
             <div
               className="relative rounded-lg flex items-center justify-center"
               style={{
@@ -54,15 +54,23 @@ function ModelViewer3D(props) {
                 </div>
               )}
               <button
-                className="absolute left-3 top-2 text-2xl text-white  hover:bg-gray-400 rounded-md hover:text-gray-700 transform active:scale-75 transition-transform"
+                className="absolute left-3 top-5 text-xl p-1 text-white  hover:bg-gray-400 rounded-md hover:text-gray-700 transform active:scale-75 transition-transform"
+                title="Back"
                 onClick={props.close3dModal}
               >
                 <h1>
                   <HiArrowLeft />
                 </h1>
               </button>
-              <div className="absolute bottom-2 left-3 text-gray-300">
+              <div className="absolute bottom-5 left-3 text-gray-300">
                 <h1>{props.element.name}</h1>
+              </div>
+              <div className="absolute top-5 right-3">
+                {props.element.shells && (
+                  <h1 className="text-[12px]">
+                    [{props.element.shells.join(", ")}]
+                  </h1>
+                )}
               </div>
             </div>
           </div>

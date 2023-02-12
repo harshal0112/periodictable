@@ -2,49 +2,7 @@
   display: grid;
   grid-template-columns: repeat(18, 70px);
   grid-template-rows: repeat(10, 70px);
-  grid-gap: 2px;
-}
-
-
-@media only screen and (max-width: 1300px) {
-  .periodic-table {
-    scale: 0.8;
-  }
-}
-
-@media only screen and (max-width: 1050px) {
-  .periodic-table {
-    scale: 0.6;
-  }
-}
-
-@media only screen and (max-width: 780px) {
-  .periodic-table {
-    scale: 0.4;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-  .periodic-table {
-    transform: rotate(90deg);
-    scale: 0.45;
-  }
-
-  .element {
-    transform: rotate(270deg);
-  }
-
-  .element:hover {
-    transform: rotate(270deg);
-  }
-
-  .list {
-    transform: rotate(270deg);
-  }
-
-  .list1 {
-    justify-content: end;
-  }
+  grid-gap: 3px;
 }
 
 .element {
@@ -86,13 +44,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
+  height: 85%;
+  flex-wrap: wrap;
+  gap: 2px;
 }
 
 .pop-up {
   animation-name: popup;
   animation-duration: 300ms;
-  padding-top: 20px;
+  padding-top: 65px;
 }
 
 @keyframes popup {

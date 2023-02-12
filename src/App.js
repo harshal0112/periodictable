@@ -30,7 +30,7 @@ function App() {
       <Dashboard />
       <div
         className="mx-auto max-w-full flex justify-center py-0 sm:px-0
-       lg:py-6 bg-white dark:bg-gray-600 text-gray-200"
+       lg:py-6 bg-white dark:bg-gray-700 text-gray-200 font-[Arial]"
       >
         <PeriodicTable showModal={showModal} isModal={isModal} />
         <ElementDetails
