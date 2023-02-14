@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 
-function Dashboard() {
+function Dashboard(props) {
   const [mainMenuOpen, setMainMenuOpen] = useState(false);
   function mainMenuClick() {
     if (mainMenuOpen) {
@@ -309,11 +310,19 @@ function Dashboard() {
           </div>
         </nav>
 
-        <header className=" shadow-xl shadow-black bg-gray-900 bg-opacity-90">
-          <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl text-gray-200 font-bold tracking-tight">
-              Periodic Table
-            </h1>
+        <header className=" shadow-xl shadow-black bg-gray-900 bg-opacity-90 text-gray-200">
+          <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative">
+            <div className="h-full w-full relative flex items-center justify-center">
+              <h1 className="text-3xl font-bold tracking-tight">
+                Periodic Table
+              </h1>
+              <button
+                className="absolute right-0 text-2xl "
+                onClick={() => props.showListSearch("Visible")}
+              >
+                <AiOutlineUnorderedList />
+              </button>
+            </div>
           </div>
         </header>
       </div>

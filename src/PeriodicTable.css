@@ -22,13 +22,13 @@
 }
 
 .element .name {
-  font-size: 9.5px;
+  font-size: 11px;
   position: absolute;
   bottom: 3px;
 }
 
 .element .atomic-weight {
-  font-size: 8px;
+  font-size: 9px;
   position: absolute;
   top: 5px;
   right: 5px;

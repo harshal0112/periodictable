@@ -32,7 +32,7 @@ function ElementDetails(props) {
         aria-hidden="true"
         className={`fixed top-0 left-0 right-0 bottom-0 flex justify-center ${
           props.isModal === "Visible" ? "" : "hidden"
-        } w-full p-0 overflow-x-hidden ${
+        } w-full overflow-x-hidden ${
           props.is3dModal === "Visible"
             ? "overflow-y-hidden"
             : "overflow-y-auto"
@@ -40,12 +40,14 @@ function ElementDetails(props) {
         onClick={props.closeModal}
       >
         <div
-          className={`absolute p-2 z-50 w-full h-full max-w-lg md:h-auto ${
+          className={`absolute z-50 h-full px-2 max-w-lg md:h-auto ${
             props.isModal === "Visible" ? "pop-up" : ""
           }`}
-          onClick={(e) => e.stopPropagation()}
         >
-          <div className="relative bg-white divide-y divide-slate-600 tracking-wide shadow dark:bg-gray-900 rounded-[2px]">
+          <div
+            className="relative bg-white divide-y divide-slate-600 tracking-wide shadow dark:bg-gray-900 rounded-[2px]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="relative">
               <div
                 className={`flex justify-center items-center overflow-hidden h-64 rounded-t-[2px]`}
@@ -116,7 +118,11 @@ function ElementDetails(props) {
             </div>
             <div className="p-3 flex text-gray-300 items-center justify-center divide-x divide-slate-600">
               <div
-                className="flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center"
+                className={`flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center ${
+                  props.element.number === 1
+                    ? "pointer-events-none text-zinc-500"
+                    : ""
+                }`}
                 onClick={() =>
                   props.showModal(
                     "Visible",
@@ -145,7 +151,11 @@ function ElementDetails(props) {
                 <div className="absolute left-2">&#10094;</div>
               </div>
               <div
-                className="flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center"
+                className={`flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center ${
+                  props.element.number === 119
+                    ? "pointer-events-none text-zinc-500"
+                    : ""
+                }`}
                 onClick={() =>
                   props.showModal(
                     "Visible",

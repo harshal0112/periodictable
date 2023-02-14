@@ -20,12 +20,9 @@ const colorMap = {
   "unknown, but predicted to be an alkali metal": "#ff4300",
 };
 
-console.log(data.elements[0]);
-
 const PeriodicTable = (props) => {
   const [selectedCat, setSelectedCat] = useState("");
   const ElementCatSelect = (category) => {
-    console.log(category);
     setSelectedCat(category);
   };
   return (
@@ -47,7 +44,7 @@ const PeriodicTable = (props) => {
               gridColumn: element.xpos,
               border: "0px solid #000000",
               backgroundColor: colorMap[element.category],
-              borderRadius: "5px",
+              borderRadius: "3px",
             }}
             onClick={(e) => props.showModal("Visible", element)}
           >
@@ -64,7 +61,7 @@ const PeriodicTable = (props) => {
         <div
           className={`element no-element ${
             selectedCat === "lanthanide"
-              ? "opacity-100 shadow-xl shadow-black"
+              ? "opacity-100 shadow-2xl shadow-black"
               : !selectedCat
               ? "opacity-100"
               : "opacity-5"
@@ -84,7 +81,7 @@ const PeriodicTable = (props) => {
         <div
           className={`element no-element ${
             selectedCat === "actinide"
-              ? "opacity-100 shadow-xl shadow-black"
+              ? "opacity-100 shadow-2xl shadow-black"
               : !selectedCat
               ? "opacity-100"
               : "opacity-5"
@@ -110,8 +107,10 @@ const PeriodicTable = (props) => {
           }}
         >
           <button
-            className={`w-full flex justify-center items-center p-1 mb-2 rounded-full bg-gray-800 ${
-              selectedCat ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`w-full ml-4 flex justify-center items-center p-1 mb-2 rounded-full bg-gray-800 ${
+              selectedCat
+                ? "opacity-100 shadow shadow-black"
+                : "opacity-0 pointer-events-none"
             } transform transition-transform active:scale-95`}
             onClick={(e) => ElementCatSelect("")}
           >
