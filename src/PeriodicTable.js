@@ -59,7 +59,7 @@ const PeriodicTable = (props) => {
           </div>
         ))}
         <div
-          className={`element no-element ${
+          className={`element pointer-events-none no-element ${
             selectedCat === "lanthanide"
               ? "opacity-100 shadow-2xl shadow-black"
               : !selectedCat
@@ -71,7 +71,7 @@ const PeriodicTable = (props) => {
             gridColumn: 3,
             border: "0px solid #000000",
             backgroundColor: colorMap["lanthanide"],
-            borderRadius: "5px",
+            borderRadius: "3px",
           }}
         >
           <strong>*</strong>
@@ -79,7 +79,7 @@ const PeriodicTable = (props) => {
           <small className="name">Lanthanides</small>
         </div>
         <div
-          className={`element no-element ${
+          className={`element pointer-events-none no-element ${
             selectedCat === "actinide"
               ? "opacity-100 shadow-2xl shadow-black"
               : !selectedCat
@@ -91,7 +91,7 @@ const PeriodicTable = (props) => {
             gridColumn: 3,
             border: "0px solid #000000",
             backgroundColor: colorMap["actinide"],
-            borderRadius: "5px",
+            borderRadius: "3px",
           }}
         >
           <strong>**</strong>
@@ -107,20 +107,20 @@ const PeriodicTable = (props) => {
           }}
         >
           <button
-            className={`w-full ml-4 flex justify-center items-center p-1 mb-2 rounded-full bg-gray-800 ${
+            className={`w-full ml-4 flex justify-center items-center p-1 mb-2 rounded-full bg-gray-900 ${
               selectedCat
                 ? "opacity-100 shadow shadow-black"
                 : "opacity-0 pointer-events-none"
-            } transform transition-transform active:scale-95`}
+            } transform transition-transform active:scale-95 absolute top-[-15px]`}
             onClick={(e) => ElementCatSelect("")}
           >
             <h1 className="text-sm">Clear Filter</h1>
           </button>
-          <ul className="list list1 ml-8 text-gray-700 dark:text-gray-100">
+          <ul className="list list1 ml-8 text-gray-700 dark:text-gray-100 mt-5">
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "diatomic nonmetal"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("diatomic nonmetal")}
@@ -132,9 +132,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Diatomic NonMetal</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 mr-5 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 mr-5 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "alkali metal"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("alkali metal")}
@@ -146,9 +146,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Alkali Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "alkaline earth metal"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("alkaline earth metal")}
@@ -160,9 +160,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Alkaline Earth Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "transition metal"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("transition metal")}
@@ -174,9 +174,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Transition Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "post-transition metal"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("post-transition metal")}
@@ -188,9 +188,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Post Transition Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "metalloid"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("metalloid")}
@@ -202,9 +202,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Metalloids</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "polyatomic nonmetal"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("polyatomic nonmetal")}
@@ -216,9 +216,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Polyatomic NonMetal</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "noble gas"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("noble gas")}
@@ -230,9 +230,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Noble Gas</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "unknown"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("unknown")}
@@ -244,9 +244,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Unknown</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "lanthanide"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("lanthanide")}
@@ -258,9 +258,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Lanthanides</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-800 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "actinide"
-                  ? "shadow shadow-black bg-gray-800"
+                  ? "shadow shadow-black bg-gray-900"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("actinide")}

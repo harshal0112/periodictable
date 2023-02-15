@@ -1,28 +1,28 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 
 function Dashboard(props) {
-  const [mainMenuOpen, setMainMenuOpen] = useState(false);
-  function mainMenuClick() {
-    if (mainMenuOpen) {
-      setMainMenuOpen(false);
-    } else {
-      setMainMenuOpen(true);
-    }
-  }
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
-  function userMenuClick() {
-    if (userMenuOpen) {
-      setUserMenuOpen(false);
-    } else {
-      setUserMenuOpen(true);
-    }
-  }
+  // const [mainMenuOpen, setMainMenuOpen] = useState(false);
+  // function mainMenuClick() {
+  //   if (mainMenuOpen) {
+  //     setMainMenuOpen(false);
+  //   } else {
+  //     setMainMenuOpen(true);
+  //   }
+  // }
+  // const [userMenuOpen, setUserMenuOpen] = useState(false);
+  // function userMenuClick() {
+  //   if (userMenuOpen) {
+  //     setUserMenuOpen(false);
+  //   } else {
+  //     setUserMenuOpen(true);
+  //   }
+  // }
   return (
     <div>
       <div className="min-h-full">
-        <nav className="bg-white dark:bg-gray-800 drop-shadow">
+        {/* <nav className="bg-white dark:bg-gray-800 drop-shadow">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
@@ -166,7 +166,6 @@ function Dashboard(props) {
                   onClick={mainMenuClick}
                 >
                   <span className="sr-only">Open main menu</span>
-                  {/*  */}
                   <svg
                     className="block h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -308,9 +307,9 @@ function Dashboard(props) {
               </div>
             </div>
           </div>
-        </nav>
+        </nav> */}
 
-        <header className=" shadow-xl shadow-black bg-gray-900 bg-opacity-90 text-gray-200">
+        <header className=" shadow-xl shadow-black bg-gray-700 text-gray-200">
           <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative">
             <div className="h-full w-full relative flex items-center justify-center">
               <h1 className="text-3xl font-bold tracking-tight">

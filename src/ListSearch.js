@@ -40,13 +40,34 @@ function ListSearch(props) {
   const setFilterList = (event) => {
     setListFilter(event);
   };
+
+  const elementList = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const listItems = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
     <>
-      <div
-        className={`fixed top-0 left-0 right-0 inset-0 w-full bg-black bg-opacity-50 backdrop-brightness-50 p-3 pt-14 pb-36 flex items-center justify-center ${
-          props.isListSearch === "Visible" ? "" : "hidden"
-        }`}
+      <motion.div
+        className={`fixed top-0 left-0 right-0 inset-0 w-full bg-black bg-opacity-50 backdrop-brightness-50 p-3 pt-14 pb-36 flex items-center justify-center`}
         onClick={() => props.showListSearch("hidden")}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
         <div
           className={`w-full h-full max-w-lg bg-transparent rounded-sm ${
@@ -54,7 +75,12 @@ function ListSearch(props) {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", duration: 1.5 }}
+          >
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <span className="text-gray-500 sm:text-sm">
                 <BsSearch />
@@ -62,53 +88,68 @@ function ListSearch(props) {
             </div>
             <input
               type="text"
-              className="block w-full h-11 rounded-md border-0 pl-10 pr-12 focus:outline-none sm:text-sm text-black"
-              placeholder="Search by element name"
+              className="block w-full h-11 rounded-md border-0 pl-10 pr-12 focus:outline-none sm:text-sm text-black searchbar"
+              placeholder="Search by element name..."
               onChange={(e) => SearchText(e)}
             />
-          </div>
+          </motion.div>
           <div className="w-full h-9 text-[11px] bg-zinc-500 bg-opacity-20 mt-5 flex gap-2 px-1 rounded items-center">
-            <button
+            <motion.button
               className={`bg-zinc-500 bg-opacity-30 rounded px-3 h-7 flex items-center ${
                 listFilter === "number"
                   ? "bg-gray-200 bg-opacity-100 text-black"
                   : ""
-              }`}
+              } filterButtons`}
               onClick={() => setFilterList("number")}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.6 }}
             >
               ATOMIC NUMBER
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               className={`bg-zinc-500 bg-opacity-30 rounded px-3 h-7 flex items-center ${
                 listFilter === "name"
                   ? "bg-gray-200 bg-opacity-100 text-black"
                   : ""
-              }`}
+              } filterButtons`}
               onClick={() => setFilterList("name")}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1 }}
             >
               NAME
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               className={`bg-zinc-500 bg-opacity-30 rounded px-3 h-7 flex items-center ${
                 listFilter === "symbol"
                   ? "bg-gray-200 bg-opacity-100 text-black"
                   : ""
-              }`}
+              } filterButtons`}
               onClick={() => setFilterList("symbol")}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1.5 }}
             >
               SYMBOL
-            </button>
+            </motion.button>
           </div>
-          <div className="mt-5 w-full h-full overflow-auto">
+          <motion.div
+            className="mt-5 w-full h-full overflow-auto"
+            variants={elementList}
+            initial="hidden"
+            animate="visible"
+          >
             {data.elements.sort(sortByProperty(listFilter)).map(
               (element) =>
                 element.name
                   .toLowerCase()
                   .includes(searchEntry.toLowerCase()) && (
-                  <div
+                  <motion.div
                     className="w-full h-16 bg-gray-800 mb-2 flex items-center rounded-md cursor-pointer"
                     key={element.number}
                     onClick={(e) => props.showModal("Visible", element)}
+                    variants={listItems}
                   >
                     <div
                       className="h-full w-16 rounded-md flex items-center justify-center"
@@ -130,12 +171,12 @@ function ListSearch(props) {
                         {element.density} g/cm<sup>3</sup>
                       </h1>
                     </div>
-                  </div>
+                  </motion.div>
                 )
             )}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

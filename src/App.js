@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import Dashboard from "./Dashboard";
-import ElementDetails from "./ElementDetails2Framer";
+import ElementDetails from "./ElementDetails";
 import ListSearch from "./ListSearch";
 import ModelViewer3D from "./ModelViewer3D";
 import PeriodicTable from "./PeriodicTable";
+import { AnimatePresence } from "framer-motion";
+import Footer from "./Footer";
 // import Video from "./Video";
 
 function App() {
@@ -36,22 +38,30 @@ function App() {
     <div className="App font-[Calibri]">
       <Dashboard showListSearch={showListSearch} />
       <div
-        className="mx-auto max-w-full flex justify-center py-0 sm:px-0
-       lg:py-6 bg-white dark:bg-gray-700 text-gray-200"
+        className="mx-auto max-w-full flex justify-center sm:px-0
+       py-5 bg-white dark:bg-gray-800 text-gray-200"
       >
         <PeriodicTable
           showModal={showModal}
           isModal={isModal}
           showListSearch={showListSearch}
         />
-        <ElementDetails
-          isModal={isModal}
-          element={element}
-          showModal={showModal}
-          closeModal={closeModal}
-          show3dModal={show3dModal}
-          is3dModal={is3dModal}
-        />
+        <AnimatePresence>
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+          {isModal === "Visible" && (
+            <ElementDetails
+              isModal={isModal}
+              element={element}
+              showModal={showModal}
+              closeModal={closeModal}
+              show3dModal={show3dModal}
+              is3dModal={is3dModal}
+              isListSearch={isListSearch}
+            />
+          )}
+        </AnimatePresence>
         <ModelViewer3D
           className="z-10"
           is3dModal={is3dModal}
@@ -59,14 +69,17 @@ function App() {
           show3dModal={show3dModal}
           element={element}
         />
-        <ListSearch
-          isListSearch={isListSearch}
-          showListSearch={showListSearch}
-          showModal={showModal}
-          isModal={isModal}
-        />
+        {isListSearch === "Visible" && (
+          <ListSearch
+            isListSearch={isListSearch}
+            showListSearch={showListSearch}
+            showModal={showModal}
+            isModal={isModal}
+          />
+        )}
       </div>
       {/* <Video /> */}
+      <Footer />
     </div>
   );
 }
