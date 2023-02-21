@@ -33,7 +33,7 @@ function ElementDetails(props) {
         aria-hidden="true"
         className={`fixed top-0 left-0 right-0 bottom-0 flex justify-center w-full overflow-x-hidden ${
           props.is3dModal === "Visible"
-            ? "overflow-y-hidden"
+            ? "overflow-y-hidden brightness-50"
             : "overflow-y-auto"
         } md:inset-0 h-modal md:h-full ${
           props.isListSearch === "Visible"
@@ -49,9 +49,9 @@ function ElementDetails(props) {
             <motion.div
               className="relative bg-white divide-y divide-slate-600 tracking-wide shadow dark:bg-gray-900 rounded-[2px]"
               onClick={(e) => e.stopPropagation()}
-              initial={{ y: 500, opacity: 0 }}
-              animate={{ y: 70, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 150 }}
+              initial={{ y: "100vh", opacity: 0 }}
+              animate={{ y: 60, opacity: 1 }}
+              transition={{ type: "tween" }}
             >
               <div className="relative bg-zinc-500">
                 <div
@@ -127,13 +127,14 @@ function ElementDetails(props) {
                   </button>
                 </div>
               </div>
-              <div className="p-3 flex text-gray-300 items-center justify-center divide-x divide-slate-600">
+              <div className="p-3 flex dark:text-gray-300 text-gray-800 items-center justify-center divide-x divide-slate-600 dark:bg-gray-900 bg-gray-400">
                 <div
-                  className={`flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center ${
+                  className={`flex justify-center w-1/2 cursor-pointer dark:hover:text-gray-100 hover:text-black relative items-center ${
                     props.element.number === 1
                       ? "pointer-events-none text-zinc-500"
                       : ""
                   }`}
+                  title="Previous Element"
                   onClick={() =>
                     props.showModal(
                       "Visible",
@@ -162,11 +163,12 @@ function ElementDetails(props) {
                   <div className="absolute left-2">&#10094;</div>
                 </div>
                 <div
-                  className={`flex justify-center w-1/2 cursor-pointer hover:text-gray-100 relative items-center ${
+                  className={`flex justify-center w-1/2 cursor-pointer dark:hover:text-gray-100 hover:text-black relative items-center ${
                     props.element.number === 119
                       ? "pointer-events-none text-zinc-500"
                       : ""
                   }`}
+                  title="Next Element"
                   onClick={() =>
                     props.showModal(
                       "Visible",
@@ -194,13 +196,13 @@ function ElementDetails(props) {
                   <div className="absolute right-2">&#10095;</div>
                 </div>
               </div>
-              <div className="bg-gray-900 text-gray-300 text-start relative">
+              <div className="dark:bg-gray-900 bg-gray-400 dark:text-gray-300 text-start relative text-gray-900">
                 <input
                   type="checkbox"
                   defaultChecked="true"
                   className="peer inset-x-0 absolute w-full h-12 opacity-0 cursor-pointer"
                 />
-                <div className="flex items-center bg-gray-700 h-12 pl-3">
+                <div className="flex items-center dark:bg-gray-700 bg-gray-500 h-12 pl-3">
                   <div className="">
                     <FaReact />
                   </div>
@@ -209,59 +211,61 @@ function ElementDetails(props) {
                 <div className="absolute transition-transform rotate-0 peer-checked:rotate-180 right-4 top-4">
                   <HiOutlineChevronDown />
                 </div>
-                <div className="max-h-0 overflow-hidden peer-checked:max-h-max bg-gray-900 transition-all duration-500 divide-y divide-gray-700">
+                <div className="max-h-0 overflow-hidden peer-checked:max-h-max dark:bg-gray-900 bg-gray-400 transition-all duration-500 divide-y divide-gray-700">
                   <div className="flex items-start flex-col p-3">
-                    <small className="text-gray-500 text-start">Summary:</small>
-                    <small className="text-start leading-relaxed text-gray-400 dark:text-gray-300">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
+                      Summary:
+                    </small>
+                    <small className="text-start leading-relaxed text-gray-800 dark:text-gray-300">
                       {props.element.summary}
                     </small>
                   </div>
                   <div className="flex items-start flex-col p-3">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Discovered By:
                     </small>
-                    <small className=" leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className=" leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.discovered_by
                         ? props.element.discovered_by
                         : "----------"}
                     </small>
                   </div>
                   <div className="flex items-start flex-col p-3">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Named By:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.named_by
                         ? props.element.named_by
                         : "-----------"}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Appearance:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.appearance}
                     </small>
                   </div>
                   <div className="flex flex-col items-start p-3">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Electronic Shells:
                     </small>
                     {props.element.shells && (
-                      <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                      <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                         {props.element.shells.join(", ")}
                       </small>
                     )}
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-900 text-gray-300 text-start relative">
+              <div className="dark:bg-gray-900 bg-gray-400 dark:text-gray-300 text-start text-gray-900 relative">
                 <input
                   type="checkbox"
                   className="peer inset-x-0 absolute w-full h-12 opacity-0 cursor-pointer"
                 />
-                <div className="flex items-center bg-gray-700 h-12 pl-3">
+                <div className="flex items-center dark:bg-gray-700 bg-gray-500  h-12 pl-3">
                   <div className="">
                     <GiFizzingFlask />
                   </div>
@@ -270,84 +274,92 @@ function ElementDetails(props) {
                 <div className="absolute transition-transform rotate-0 peer-checked:rotate-180 right-4 top-4">
                   <HiOutlineChevronDown />
                 </div>
-                <div className="max-h-0 overflow-hidden peer-checked:max-h-max bg-gray-900 transition-all duration-500 divide-y divide-gray-700">
+                <div className="max-h-0 overflow-hidden peer-checked:max-h-max dark:bg-gray-900 bg-gray-400 transition-all duration-500 divide-y divide-gray-700">
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Atomic Number:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.number}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Atomic Mass:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.atomic_mass}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Electron Configuration:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.electron_configuration}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">Density:</small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
+                      Density:
+                    </small>
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.density}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">Phase:</small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
+                      Phase:
+                    </small>
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.phase}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Melting Point:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.melt}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Boiling Point:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.boil}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Molar Heat:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.molar_heat}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">Group:</small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
+                      Group:
+                    </small>
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.group}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">Period:</small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
+                      Period:
+                    </small>
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.period}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Emission Spectrum:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       <a
                         className="hover:underline text-cyan-500 hover:text-blue-500"
                         href={props.element.spectral_img}
@@ -361,12 +373,12 @@ function ElementDetails(props) {
                 </div>
               </div>
 
-              <div className="bg-gray-900 text-gray-300 text-start relative">
+              <div className="dark:bg-gray-900 bg-gray-400 dark:text-gray-300 text-start text-gray-900 relative">
                 <input
                   type="checkbox"
                   className="peer inset-x-0 absolute w-full h-12 opacity-0 cursor-pointer"
                 />
-                <div className="flex items-center bg-gray-700 h-12 pl-3">
+                <div className="flex items-center dark:bg-gray-700 bg-gray-500 h-12 pl-3">
                   <div className="">
                     <GiChemicalDrop />
                   </div>
@@ -375,20 +387,20 @@ function ElementDetails(props) {
                 <div className="absolute transition-transform rotate-0 peer-checked:rotate-180 right-4 top-4">
                   <HiOutlineChevronDown />
                 </div>
-                <div className="max-h-0 overflow-hidden peer-checked:max-h-max bg-gray-900 transition-all duration-500 divide-y divide-gray-700">
+                <div className="max-h-0 overflow-hidden peer-checked:max-h-max dark:bg-gray-900 bg-gray-400 transition-all duration-500 divide-y divide-gray-700">
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       ElectroNegativity Pauling:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.electronegativity_pauling}
                     </small>
                   </div>
                   <div className="flex items-start p-3 flex-col">
-                    <small className="text-gray-500 text-start">
+                    <small className="dark:text-gray-500 text-gray-600 text-start">
                       Electron Affinity:
                     </small>
-                    <small className="leading-relaxed text-gray-400 dark:text-gray-300 text-start">
+                    <small className="leading-relaxed text-gray-800 dark:text-gray-300 text-start">
                       {props.element.electron_affinity}
                     </small>
                   </div>

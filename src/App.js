@@ -35,11 +35,11 @@ function App() {
     setIsListSearch(event);
   };
   return (
-    <div className="App font-[Calibri]">
+    <div className="App font-[Roboto]">
       <Dashboard showListSearch={showListSearch} />
       <div
         className="mx-auto max-w-full flex justify-center sm:px-0
-       py-5 bg-white dark:bg-gray-800 text-gray-200"
+       py-5 bg-gray-400 dark:bg-gray-800 text-gray-200"
       >
         <PeriodicTable
           showModal={showModal}

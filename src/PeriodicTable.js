@@ -107,7 +107,7 @@ const PeriodicTable = (props) => {
           }}
         >
           <button
-            className={`w-full ml-4 flex justify-center items-center p-1 mb-2 rounded-full bg-gray-900 ${
+            className={`w-full ml-4 flex justify-center items-center p-1 mb-2 rounded-full bg-gray-300 text-black filterButtons ${
               selectedCat
                 ? "opacity-100 shadow shadow-black"
                 : "opacity-0 pointer-events-none"
@@ -118,9 +118,9 @@ const PeriodicTable = (props) => {
           </button>
           <ul className="list list1 ml-8 text-gray-700 dark:text-gray-100 mt-5">
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "diatomic nonmetal"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("diatomic nonmetal")}
@@ -132,9 +132,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Diatomic NonMetal</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 mr-5 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 mr-5 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "alkali metal"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("alkali metal")}
@@ -146,9 +146,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Alkali Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "alkaline earth metal"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("alkaline earth metal")}
@@ -160,9 +160,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Alkaline Earth Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "transition metal"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("transition metal")}
@@ -174,9 +174,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Transition Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "post-transition metal"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("post-transition metal")}
@@ -188,9 +188,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Post Transition Metals</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "metalloid"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("metalloid")}
@@ -202,9 +202,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Metalloids</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "polyatomic nonmetal"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("polyatomic nonmetal")}
@@ -216,9 +216,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Polyatomic NonMetal</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "noble gas"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("noble gas")}
@@ -230,9 +230,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Noble Gas</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "unknown"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("unknown")}
@@ -244,9 +244,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Unknown</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "lanthanide"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("lanthanide")}
@@ -258,9 +258,9 @@ const PeriodicTable = (props) => {
               <small> &nbsp; &nbsp; Lanthanides</small>
             </li>
             <li
-              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-900 rounded-full hover:shadow hover:shadow-black active:scale-95 ${
+              className={`flex flex-row content-center justify-start transform cursor-pointer transition-transform w-48 p-1 hover:bg-gray-400 hover:text-black rounded-full hover:shadow hover:shadow-black active:scale-95 ${
                 selectedCat === "actinide"
-                  ? "shadow shadow-black bg-gray-900"
+                  ? "shadow shadow-black bg-gray-300 text-black filterButtons"
                   : ""
               }`}
               onClick={(e) => ElementCatSelect("actinide")}
@@ -286,25 +286,25 @@ const PeriodicTable = (props) => {
             style={{ backgroundColor: colorMap["diatomic nonmetal"] }}
           >
             <strong className="text-4xl absolute">O</strong>
-            <small className="absolute top-2 right-2">15.99</small>
+            <small className="absolute top-2 right-2">15.999</small>
             <small className="absolute text-base left-2 top-2">8</small>
             <small className="absolute bottom-2">Oxygen</small>
           </div>
-          <div className="absolute text-lg arrow-a-weight">
+          <div className="absolute text-lg arrow-a-weight text-gray-800 dark:text-gray-200">
             &mdash;{" "}
             <small className="text-xs tracking-tight leading-3">
               Atomic Weight
             </small>
           </div>
-          <div className="absolute text-lg arrow-symbol">
+          <div className="absolute text-lg arrow-symbol text-gray-800 dark:text-gray-200">
             &mdash;&mdash;&ndash;{" "}
             <small className="text-xs tracking-tight leading-3">Symbol</small>
           </div>
-          <div className="absolute text-lg arrow-name">
+          <div className="absolute text-lg arrow-name text-gray-800 dark:text-gray-200">
             &mdash;&mdash;&ndash;{" "}
             <small className="text-xs tracking-tight leading-3">Name</small>
           </div>
-          <div className="absolute text-lg arrow-a-number flex flex-col">
+          <div className="absolute text-lg arrow-a-number flex flex-col text-gray-800 dark:text-gray-200">
             <small className="text-xs tracking-tight leading-3">
               Atomic Number
             </small>
