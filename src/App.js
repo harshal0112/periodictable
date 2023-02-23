@@ -35,7 +35,7 @@ function App() {
     setIsListSearch(event);
   };
   return (
-    <div className="App font-[Roboto]">
+    <div className="App font-[Roboto] flex flex-col bg-gray-400 dark:bg-gray-800 h-screen">
       <Dashboard showListSearch={showListSearch} />
       <div
         className="mx-auto max-w-full flex justify-center sm:px-0

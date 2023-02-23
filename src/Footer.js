@@ -3,8 +3,8 @@ import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div>
-      <footer className=" p-4 dark:bg-gray-700 bg-gray-500">
+    <>
+      <footer className="footer p-4 dark:bg-gray-700 bg-gray-500 mt-auto">
         <div className="flex items-center justify-between">
           <span className="text-sm sm:text-center dark:text-gray-200 text-gray-800">
             © 2023{" "}
@@ -52,7 +52,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 

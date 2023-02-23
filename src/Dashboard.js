@@ -309,7 +309,7 @@ function Dashboard(props) {
           </div>
         </nav> */}
 
-        <header className=" shadow-xl shadow-black dark:bg-gray-700 bg-gray-500 dark:text-gray-200 text-gray-800">
+        <header className="dark:bg-gray-700 bg-gray-500 dark:text-gray-200 text-gray-800">
           <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative">
             <div className="h-full w-full relative flex items-center justify-center">
               <h1 className="text-3xl font-bold tracking-tight">
