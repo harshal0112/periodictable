@@ -43,6 +43,7 @@ function ElementDetails(props) {
         onClick={props.closeModal}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
         <div className={`absolute z-50 h-full px-2 max-w-lg md:h-auto`}>
           {props.isModal === "Visible" && (
@@ -52,6 +53,7 @@ function ElementDetails(props) {
               initial={{ y: "100vh", opacity: 0 }}
               animate={{ y: 60, opacity: 1 }}
               transition={{ type: "tween" }}
+              exit={{ y: window.innerHeight }}
             >
               <div className="relative bg-zinc-500">
                 <div
